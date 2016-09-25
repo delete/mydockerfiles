@@ -1,4 +1,5 @@
 var grunt = require('grunt');
+require('jit-grunt')(grunt);
 var fs = require('fs');
 
 grunt.initConfig({
@@ -41,10 +42,6 @@ grunt.initConfig({
       },
    },
 });
-
-grunt.loadNpmTasks('grunt-contrib-uglify');
-grunt.loadNpmTasks('grunt-contrib-watch');
-grunt.loadNpmTasks('grunt-contrib-concat');
 
 grunt.registerTask('perm', 'Give the right permission', function() {
     fs.chown('src/main.js', 1000, 1000);
