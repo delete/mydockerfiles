@@ -43,15 +43,13 @@ grunt.initConfig({
    },
 });
 
-grunt.registerTask('perm', 'Give the right permission', function() {
-    fs.chown('src/main.js', 1000, 1000);
-    fs.chown('src/script.js', 1000, 1000);
-    fs.chown('src/maps.js', 1000, 1000);
-    fs.chown('dist/main.min.js', 1000, 1000);
-});
-
 grunt.registerTask('default', ['concat', 'uglify', 'perm']);
 grunt.registerTask('build', ['concat', 'uglify', 'perm']);
 grunt.registerTask('dev', ['watch', 'perm']);
+
+grunt.registerTask('perm', 'Give the right permission', function() {
+    fs.chown('src/maps.js', 1000, 1000);
+    fs.chown('dist/main.min.js', 1000, 1000);
+});
 
 module.exports = grunt;
